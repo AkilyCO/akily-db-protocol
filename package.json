@@ -8,7 +8,7 @@
         "delete:build": "rm -rf lib",
         "build": "jest --coverage && npm run linter && npm run delete:build && tsc",
         "version-select": "version-select",
-        "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
+        "lint": "eslint \"{src,__test__}/**/*.ts\"",
         "lint:fix": "eslint \"{src,__test__}/**/*.ts\" --fix",
         "linter": "npm run lint && npm run lint:fix",
         "release": "echo ⚠️ ⚠️ ⚠️  Plese select the version ⚠️ ⚠️ ⚠️ && npm run version-select && npm run build && npm publish",
