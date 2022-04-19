@@ -7,7 +7,7 @@ export class AkilyProtocol {
   isConnected = false
 
   public async setConnection(config: ConfigData) {
-    this.VALIDATE_CONFIG(config)
+    // this.VALIDATE_CONFIG(config)
     this.pool = new Pool(config)
     await this.pool.connect()
     this.isConnected = true
