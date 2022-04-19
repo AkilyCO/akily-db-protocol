@@ -1,12 +1,12 @@
 {
     "name": "@akily/db-protocol",
-    "version": "1.1.7",
+    "version": "1.1.9",
     "description": "Protocol for Akily's database",
     "main": "index.js",
     "scripts": {
         "test": "jest",
         "delete:build": "rm -rf lib",
-        "build": "jest --coverage && npm run linter && npm run delete:build && tsc",
+        "build": "jest --coverage && npm run linter && npm run delete:build && npx tsc",
         "version-select": "version-select",
         "lint": "eslint \"{src,__test__}/**/*.ts\"",
         "lint:fix": "eslint \"{src,__test__}/**/*.ts\" --fix",
