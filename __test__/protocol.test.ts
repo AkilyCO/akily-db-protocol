@@ -75,65 +75,65 @@ describe('AkilyProtocol', () => {
     expect(pool.end).toHaveBeenCalled()
   })
 
-  // test('should return an error when user is not provided', async () => {
-  //   const config: ConfigData = {
-  //     user: '',
-  //     host: 'host',
-  //     database: 'database',
-  //     password: 'password',
-  //     port: 5432,
-  //   }
-  //   const protocol = new AkilyProtocol()
-  //   await expect(protocol.setConnection(config)).rejects.toThrow('user is required for starting connection')
-  // })
+  test('should return an error when user is not provided', async () => {
+    const config: ConfigData = {
+      user: '',
+      host: 'host',
+      database: 'database',
+      password: 'password',
+      port: 5432,
+    }
+    const protocol = new AkilyProtocol()
+    await expect(protocol.setConnection(config)).rejects.toThrow('user is required for starting connection')
+  })
 
-  // test('should return an error when host is not provided', async () => {
-  //   const config: ConfigData = {
-  //     user: 'user',
-  //     host: '',
-  //     database: 'database',
-  //     password: 'password',
-  //     port: 5432,
-  //   }
-  //   const protocol = new AkilyProtocol()
-  //   await expect(protocol.setConnection(config)).rejects.toThrow('host is required for starting connection')
-  // })
+  test('should return an error when host is not provided', async () => {
+    const config: ConfigData = {
+      user: 'user',
+      host: '',
+      database: 'database',
+      password: 'password',
+      port: 5432,
+    }
+    const protocol = new AkilyProtocol()
+    await expect(protocol.setConnection(config)).rejects.toThrow('host is required for starting connection')
+  })
 
-  // test('should return an error when database is not provided', async () => {
-  //   const config: ConfigData = {
-  //     user: 'user',
-  //     host: 'host',
-  //     database: '',
-  //     password: 'password',
-  //     port: 5432,
-  //   }
-  //   const protocol = new AkilyProtocol()
-  //   await expect(protocol.setConnection(config)).rejects.toThrow('database is required for starting connection')
-  // })
+  test('should return an error when database is not provided', async () => {
+    const config: ConfigData = {
+      user: 'user',
+      host: 'host',
+      database: '',
+      password: 'password',
+      port: 5432,
+    }
+    const protocol = new AkilyProtocol()
+    await expect(protocol.setConnection(config)).rejects.toThrow('database is required for starting connection')
+  })
 
-  // test('should return an error when password is not provided', async () => {
-  //   const config: ConfigData = {
-  //     user: 'user',
-  //     host: 'host',
-  //     database: 'database',
-  //     password: '',
-  //     port: 5432,
-  //   }
-  //   const protocol = new AkilyProtocol()
-  //   await expect(protocol.setConnection(config)).rejects.toThrow('password is required for starting connection')
-  // })
+  test('should return an error when password is not provided', async () => {
+    const config: ConfigData = {
+      user: 'user',
+      host: 'host',
+      database: 'database',
+      password: '',
+      port: 5432,
+    }
+    const protocol = new AkilyProtocol()
+    await expect(protocol.setConnection(config)).rejects.toThrow('password is required for starting connection')
+  })
 
-  // test('should return an error when port is not provided', async () => {
-  //   const config: ConfigData = {
-  //     user: 'user',
-  //     host: 'host',
-  //     database: 'database',
-  //     password: 'password',
-  //     port: 0,
-  //   }
-  //   const protocol = new AkilyProtocol()
-  //   await expect(protocol.setConnection(config)).rejects.toThrow('port is required for starting connection')
-  // })
+  test('should return an error when port is not provided', async () => {
+    const config: ConfigData = {
+      user: 'user',
+      host: 'host',
+      database: 'database',
+      password: 'password',
+      port: 0,
+    }
+    const protocol = new AkilyProtocol()
+    await expect(protocol.setConnection(config)).rejects.toThrow('port is required for starting connection')
+  })
 
   test('should return an error when the coneection is not set', async () => {
     const protocol = new AkilyProtocol()

@@ -7,22 +7,18 @@ export class AkilyProtocol {
   isConnected: boolean 
 
   constructor() {
-    this.VALIDATE_CONFIG = this.VALIDATE_CONFIG.bind(this)
-    this.setConnection = this.setConnection.bind(this)
-    this.executeQuery = this.executeQuery.bind(this)
-    this.closeConnection = this.closeConnection.bind(this)
     this.isConnected = false
   }
    
 
-  public async setConnection(config: ConfigData) {
+  public setConnection = async (config: ConfigData) => {
     this.VALIDATE_CONFIG(config)
     this.pool = new Pool(config)
     await this.pool.connect()
     this.isConnected = true
   }
 
-  public VALIDATE_CONFIG(config: ConfigData) {
+  public VALIDATE_CONFIG = (config: ConfigData) => {
     if (!config.user) throw new Error('user is required for starting connection')
     if (!config.host) throw new Error('host is required for starting connection')
     if (!config.database) throw new Error('database is required for starting connection')
@@ -30,13 +26,13 @@ export class AkilyProtocol {
     if (!config.port) throw new Error('port is required for starting connection')
   }
 
-  public async executeQuery(query: string, params: any[]) {
+  public executeQuery = async (query: string, params: any[]) => {
     if (!this.isConnected) throw new Error('connection is not set')
     const response = await this.pool.query(query, params)
     return response?.rows.length > 1 ? response?.rows : response?.rows[0]
   }
 
-  public async closeConnection() {
+  public closeConnection = async () => {
     await this.pool.end()
     this.isConnected = false
   }
