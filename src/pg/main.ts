@@ -4,10 +4,10 @@ import { ConfigData } from './interfaces'
 export class AkilyProtocol {
 
   pool: Pool
-  isConnected: boolean 
+  isConnected = false 
 
-  constructor() {
-    this.isConnected = false
+  constructor() { 
+    this.pool = new Pool()
   }
    
 
