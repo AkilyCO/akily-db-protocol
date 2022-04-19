@@ -12,7 +12,7 @@
         "lint:fix": "eslint \"{src,__test__}/**/*.ts\" --fix",
         "linter": "npm run lint && npm run lint:fix",
         "git-tag": "git tag -a v$(npm view @akily/db-protocol version) -m \"Version $(npm view @akily/db-protocol version)\" && git push --tags",
-        "git-prepare": "git add . && git commit -m \"Prepare for release\" && npm run git-tag && git push",
+        "git-prepare": "git add . && git commit -m \"relase: akily protocol version $(npm view @akily/db-protocol version)\" && npm run git-tag && git push",
         "release": "echo ⚠️ ⚠️ ⚠️  Plese select the version ⚠️ ⚠️ ⚠️ && npm run version-select && npm run build && npm run git-prepare && npm publish",
         "prepare": "husky install"
     },
