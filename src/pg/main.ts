@@ -4,10 +4,19 @@ import { ConfigData } from './interfaces'
 export class AkilyProtocol {
 
   pool: Pool
-  isConnected = false
+  isConnected: boolean 
+
+  constructor() {
+    this.VALIDATE_CONFIG = this.VALIDATE_CONFIG.bind(this)
+    this.setConnection = this.setConnection.bind(this)
+    this.executeQuery = this.executeQuery.bind(this)
+    this.closeConnection = this.closeConnection.bind(this)
+    this.isConnected = false
+  }
+   
 
   public async setConnection(config: ConfigData) {
-    // this.VALIDATE_CONFIG(config)
+    this.VALIDATE_CONFIG(config)
     this.pool = new Pool(config)
     await this.pool.connect()
     this.isConnected = true
