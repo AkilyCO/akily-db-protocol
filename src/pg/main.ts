@@ -16,6 +16,7 @@ export class AkilyProtocol {
     this.pool = new Pool(config)
     await this.pool.connect()
     this.isConnected = true
+    return this.isConnected
   }
 
   public VALIDATE_CONFIG = (config: ConfigData) => {
