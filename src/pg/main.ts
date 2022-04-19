@@ -13,7 +13,7 @@ export class AkilyProtocol {
     this.isConnected = true
   }
 
-  private VALIDATE_CONFIG(config: ConfigData) {
+  public VALIDATE_CONFIG(config: ConfigData) {
     if (!config.user) throw new Error('user is required for starting connection')
     if (!config.host) throw new Error('host is required for starting connection')
     if (!config.database) throw new Error('database is required for starting connection')
