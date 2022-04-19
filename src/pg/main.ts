@@ -11,7 +11,7 @@ export class AkilyProtocol {
   }
    
 
-  public setConnection = async (config: ConfigData) => {
+  public setConnection = async (config: ConfigData): Promise<boolean> => {
     this.VALIDATE_CONFIG(config)
     this.pool = new Pool(config)
     await this.pool.connect()
