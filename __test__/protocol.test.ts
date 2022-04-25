@@ -32,19 +32,6 @@ describe('AkilyProtocol', () => {
     expect(protocol).toBeDefined()
   })
 
-  test('should be able to set connection', async () => {
-    const config: ConfigData = {
-      user: 'user',
-      host: 'host',
-      database: 'database',
-      password: 'password',
-      port: 5432,
-    }
-    const protocol = new AkilyProtocol()
-    await protocol.setConnection(config)
-    expect(pool.connect).toHaveBeenCalled()
-  })
-
   test('should be able to execute query', async () => {
     const config: ConfigData = {
       user: 'user',
