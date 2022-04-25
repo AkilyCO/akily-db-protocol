@@ -3,6 +3,7 @@ import { ConfigData } from './interfaces';
 export declare class AkilyProtocol {
     pool: Pool;
     isConnected: boolean;
+    client: any;
     constructor();
     setConnection: (config: ConfigData) => Promise<boolean>;
     VALIDATE_CONFIG: (config: ConfigData) => void;

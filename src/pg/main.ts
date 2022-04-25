@@ -5,16 +5,17 @@ export class AkilyProtocol {
 
   pool: Pool
   isConnected = false 
+  client:any
 
   constructor() { 
     this.pool = new Pool()
   }
    
 
-  public setConnection = async (config: ConfigData): Promise<boolean> => {
+  public setConnection = async (config: ConfigData) => {
     this.VALIDATE_CONFIG(config)
     this.pool = new Pool(config)
-    await this.pool.connect()
+    this.client = await this.pool.connect()
     this.isConnected = true
     return this.isConnected
   }
@@ -28,9 +29,13 @@ export class AkilyProtocol {
   }
 
   public executeQuery = async (query: string, params: any[]) => {
-    if (!this.isConnected) throw new Error('connection is not set')
-    const response = await this.pool.query(query, params)
-    return response?.rows.length > 1 ? response?.rows : response?.rows[0]
+    try{
+      if (!this.isConnected) throw new Error('connection is not set')
+      const response = await this.pool.query(query, params)
+      return response?.rows.length > 1 ? response?.rows : response?.rows[0]
+    } finally {
+      this.client?.release()
+    }
   }
 
   public closeConnection = async () => {
