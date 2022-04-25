@@ -29,13 +29,11 @@ export class AkilyProtocol {
   }
 
   public executeQuery = async (query: string, params: any[]) => {
-    try{
-      if (!this.isConnected) throw new Error('connection is not set')
-      const response = await this.pool.query(query, params)
-      return response?.rows.length > 1 ? response?.rows : response?.rows[0]
-    } finally {
-      this.client?.release()
-    }
+    if (!this.isConnected) throw new Error('connection is not set')
+    const response = await this.pool.query(query, params)
+    this.client?.release()
+    await this.pool.end()
+    return response?.rows.length > 1 ? response?.rows : response?.rows[0]
   }
 
   public closeConnection = async () => {

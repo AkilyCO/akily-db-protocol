@@ -1,6 +1,6 @@
 {
     "name": "@akily/db-protocol",
-    "version": "1.1.19",
+    "version": "1.1.21",
     "description": "Protocol for Akily's database",
     "main": "index.js",
     "scripts": {
